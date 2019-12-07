@@ -8,6 +8,9 @@ A Line bot based on a finite state machine
 ## Finite State Machine
 ![fsm](./fsm.png)
 
+## QR code
+![QRcode](./QRcode.png)
+
 ## Usage
 The initial state is set to `user`.
 
