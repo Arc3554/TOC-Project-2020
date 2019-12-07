@@ -1,6 +1,6 @@
 # TOC Project 2020
 
-Code for TOC Project 2020
+名稱 : 補番機器人
 
 A Line bot based on a finite state machine
 
