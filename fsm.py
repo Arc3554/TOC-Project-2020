@@ -1,6 +1,9 @@
 from transitions.extensions import GraphMachine
 from utils import send_text_message
 from utils import send_img_url
+import sqlite3
+import random
+
 
 class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
@@ -45,6 +48,7 @@ class TocMachine(GraphMachine):
     def is_going_to_state9(self, event):
         text = event.message.text
         return text.lower() == "預覽"    
+    
     
     def on_enter_state1(self, event):
         reply_token = event.reply_token
@@ -261,184 +265,195 @@ class TocMachine(GraphMachine):
         if self.a == 0:
             send_text_message(reply_token, "請先輸入想要的類型")
         else:
+            mydb=sqlite3.connect("test.db")
+            cursor=mydb.cursor()
             if self.a==1:
                 if self.b1==1:
-                    send_img_url(reply_token,"https://imgur.com/imibKOa.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 82")
                 elif self.b1==2:
-                    send_img_url(reply_token,"https://imgur.com/JVlRELt.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 83")
                 elif self.b1 == 3:
-                    send_img_url(reply_token,"https://imgur.com/uMeHvxC.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 84")
                 elif self.b1 == 4:
-                    send_img_url(reply_token,"https://imgur.com/qraRmAl.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 85")
                 elif self.b1 == 5:
-                    send_img_url(reply_token,"https://imgur.com/TnkcGw0.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 86")
                 elif self.b1 == 6:
-                    send_img_url(reply_token,"https://imgur.com/7vpgmMg.jpg")                     
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 87")                  
                 elif self.b1 == 7:
-                    send_img_url(reply_token,"https://imgur.com/p6iFMvS.jpg")                         
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 88")                        
                 elif self.b1 == 8:
-                    send_img_url(reply_token,"https://imgur.com/OtC2BuP.jpg")                     
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 89")                   
                 elif self.b1 == 9:
-                    send_img_url(reply_token,"https://imgur.com/jQmsDBF.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 90")
                 elif self.b1 == 10:
-                    send_img_url(reply_token,"https://imgur.com/qCpeJIY.jpg")                     
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 91")                    
                 elif self.b1 == 0:
-                    send_img_url(reply_token,"https://imgur.com/5KOsANK.jpg")       
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 92")
+                Tables=cursor.fetchall()
+                send_img_url(reply_token,random.choice(Tables)[0])
                                         
             elif self.a==2:
                 if self.b2==1:
-                    send_img_url(reply_token,"https://imgur.com/5JsObtq.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 93")
                 elif self.b2==2:
-                    send_img_url(reply_token,"https://imgur.com/3MLOpgg.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 94")
                 elif self.b2 == 3:
-                    send_img_url(reply_token,"https://imgur.com/dtrj2V6.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 95")
                 elif self.b2 == 4:
-                    send_img_url(reply_token,"https://imgur.com/yRDEUg2.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 96")
                 elif self.b2 == 5:
-                    send_img_url(reply_token,"https://imgur.com/aUYhxbS.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 97")
                 elif self.b2 == 6:
-                    send_img_url(reply_token,"https://imgur.com/LbOoTEf.jpg")                     
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 98")              
                 elif self.b2 == 7:
-                    send_img_url(reply_token,"https://imgur.com/qlgpXwm.jpg")                         
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 99")                
                 elif self.b2 == 8:
-                    send_img_url(reply_token,"https://imgur.com/HXyJSOK.jpg")                     
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 100")                
                 elif self.b2 == 9:
-                    send_img_url(reply_token,"https://imgur.com/oFAmeLn.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 101")   
                 elif self.b2 == 10:
-                    send_img_url(reply_token,"https://imgur.com/QN1Qpn1.jpg")                     
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 102")                      
                 elif self.b2 == 0:
-                    send_img_url(reply_token,"https://imgur.com/yBzFges.jpg")       
-                    
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 103")      
+                Tables=cursor.fetchall()
+                send_img_url(reply_token,random.choice(Tables)[0])                    
             elif self.a==3:
                 if self.b3==1:
-                    send_img_url(reply_token,"https://imgur.com/PVKRgEJ.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 104")   
                 elif self.b3==2:
-                    send_img_url(reply_token,"https://imgur.com/krAYv8p.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 105")   
                 elif self.b3 == 3:
-                    send_img_url(reply_token,"https://imgur.com/iOl4T3j.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 106")   
                 elif self.b3 == 4:
-                    send_img_url(reply_token,"https://imgur.com/pvzFa58.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 107")   
                 elif self.b3 == 5:
-                    send_img_url(reply_token,"https://imgur.com/bhSabWc.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 108")   
                 elif self.b3 == 6:
-                    send_img_url(reply_token,"https://imgur.com/p59JTgE.jpg")                     
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 109")                     
                 elif self.b3 == 7:
-                    send_img_url(reply_token,"https://imgur.com/3P71DAg.jpg")                         
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 110")                 
                 elif self.b3 == 8:
-                    send_img_url(reply_token,"https://imgur.com/89CVsYC.jpg")                     
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 111")                     
                 elif self.b3 == 9:
-                    send_img_url(reply_token,"https://imgur.com/mob1EBm.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 112")   
                 elif self.b3 == 10:
-                    send_img_url(reply_token,"https://imgur.com/G2keoPW.jpg")        
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 113")   
                 elif self.b3 == 11:
-                    send_img_url(reply_token,"https://imgur.com/C45Kvi5.jpg")    
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 114")   
                 elif self.b3 == 0:
-                    send_img_url(reply_token,"https://imgur.com/Z7QQ3o9.jpg")        
-                    
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 115")   
+                Tables=cursor.fetchall()
+                send_img_url(reply_token,random.choice(Tables)[0])                       
             elif self.a==4:
                 if self.b4==1:
-                    send_img_url(reply_token,"https://imgur.com/UIlKNNR.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 116")   
                 elif self.b4==2:
-                    send_img_url(reply_token,"https://imgur.com/z2rjrEr.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 117")   
                 elif self.b4 == 3:
-                    send_img_url(reply_token,"https://imgur.com/ixcj7ia.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 118")   
                 elif self.b4 == 4:
-                    send_img_url(reply_token,"https://imgur.com/snTqoiI.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 119")   
                 elif self.b4 == 5:
-                    send_img_url(reply_token,"https://imgur.com/1pi44iU.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 120")   
                 elif self.b4 == 6:
-                    send_img_url(reply_token,"https://imgur.com/h5edeXy.jpg")                     
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 121")         
                 elif self.b4 == 7:
-                    send_img_url(reply_token,"https://imgur.com/5P1zR4C.jpg")                         
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 122")           
                 elif self.b4 == 8:
-                    send_img_url(reply_token,"https://imgur.com/UFvjz33.jpg")                     
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 123")                   
                 elif self.b4 == 9:
-                    send_img_url(reply_token,"https://imgur.com/d1G1v0d.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 124")   
                 elif self.b4 == 10:
-                    send_img_url(reply_token,"https://imgur.com/JrJdKBF.jpg")           
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 125")       
                 elif self.b4 == 11:
-                    send_img_url(reply_token,"https://imgur.com/ouDPmEH.jpg")         
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 126")   
                 elif self.b4 == 0:
-                    send_img_url(reply_token,"https://imgur.com/cvSCuc4.jpg")     
-                            
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 127")   
+                Tables=cursor.fetchall()
+                send_img_url(reply_token,random.choice(Tables)[0])                                  
             elif self.a==5:
                 if self.b5==1:
-                    send_img_url(reply_token,"https://imgur.com/TJfqJDs.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 128")   
                 elif self.b5==2:
-                    send_img_url(reply_token,"https://imgur.com/pXEf246.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 129")   
                 elif self.b5 == 3:
-                    send_img_url(reply_token,"https://imgur.com/dPBP3Sv.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 130")   
                 elif self.b5 == 4:
-                    send_img_url(reply_token,"https://imgur.com/HwnnScy.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 131")   
                 elif self.b5 == 5:
-                    send_img_url(reply_token,"https://imgur.com/mvpobTy.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 132")   
                 elif self.b5 == 6:
-                    send_img_url(reply_token,"https://imgur.com/XHd2Lkm.jpg")                     
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 133")             
                 elif self.b5 == 7:
-                    send_img_url(reply_token,"https://imgur.com/mTasJkT.jpg")                         
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 134")                          
                 elif self.b5 == 8:
-                    send_img_url(reply_token,"https://imgur.com/v4b6Kz1.jpg")                         
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 135")                          
                 elif self.b5 == 0:
-                    send_img_url(reply_token,"https://imgur.com/k18KujL.jpg")      
-                    
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 136")     
+                Tables=cursor.fetchall()
+                send_img_url(reply_token,random.choice(Tables)[0])                          
             elif self.a==6:
                 if self.b6==1:
-                    send_img_url(reply_token,"https://imgur.com/b37okRi.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 137")   
                 elif self.b6==2:
-                    send_img_url(reply_token,"https://imgur.com/JVNi0R4.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 138")   
                 elif self.b6 == 3:
-                    send_img_url(reply_token,"https://imgur.com/7f8uOaQ.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 139")   
                 elif self.b6 == 4:
-                    send_img_url(reply_token,"https://imgur.com/nrpHsFH.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 140")   
                 elif self.b6 == 5:
-                    send_img_url(reply_token,"https://imgur.com/tVzVKfc.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 141")   
                 elif self.b6 == 6:
-                    send_img_url(reply_token,"https://imgur.com/RU2VKwN.jpg")                     
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 142")                    
                 elif self.b6 == 7:
-                    send_img_url(reply_token,"https://imgur.com/bbWkqKs.jpg")                         
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 143")                           
                 elif self.b6 == 8:
-                    send_img_url(reply_token,"https://imgur.com/4hvJHq4.jpg")           
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 144")   
                 elif self.b6 == 9:
-                    send_img_url(reply_token,"https://imgur.com/9wOc2aY.jpg")                      
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 145")                
                 elif self.b6 == 0:
-                    send_img_url(reply_token,"https://imgur.com/hwkcJIl.jpg")              
-                    
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 146")   
+                Tables=cursor.fetchall()
+                send_img_url(reply_token,random.choice(Tables)[0])                          
             elif self.a==7:
                 if self.b7==1:
-                    send_img_url(reply_token,"https://imgur.com/mDZboGQ.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 147")   
                 elif self.b7==2:
-                    send_img_url(reply_token,"https://imgur.com/NKqrmIj.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 148")   
                 elif self.b7 == 3:
-                    send_img_url(reply_token,"https://imgur.com/NZSd1Jn.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 149")   
                 elif self.b7 == 4:
-                    send_img_url(reply_token,"https://imgur.com/gJVsX7z.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 150")   
                 elif self.b7 == 5:
-                    send_img_url(reply_token,"https://imgur.com/AWwNYvz.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 151")   
                 elif self.b7 == 6:
-                    send_img_url(reply_token,"https://imgur.com/hu1mnkC.jpg")                     
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 152")         
                 elif self.b7 == 7:
-                    send_img_url(reply_token,"https://imgur.com/wXQDOKk.jpg")                         
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 153")              
                 elif self.b7 == 8:
-                    send_img_url(reply_token,"https://imgur.com/BhZmf7v.jpg")                       
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 154")                   
                 elif self.b7 == 0:
-                    send_img_url(reply_token,"https://imgur.com/c8CUtWW.jpg")     
-                    
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 155")    
+                Tables=cursor.fetchall()
+                send_img_url(reply_token,random.choice(Tables)[0])                          
             elif self.a==8:
                 if self.b8==1:
-                    send_img_url(reply_token,"https://imgur.com/lhMPDIv.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 156")   
                 elif self.b8==2:
-                    send_img_url(reply_token,"https://imgur.com/ILFkHP7.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 157")   
                 elif self.b8 == 3:
-                    send_img_url(reply_token,"https://imgur.com/NME3pWd.jpg")
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 158")   
                 elif self.b8 == 4:
-                    send_img_url(reply_token,"https://imgur.com/KqZHKzb.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 159")   
                 elif self.b8 == 5:
-                    send_img_url(reply_token,"https://imgur.com/XErzvIV.jpg") 
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 160")   
                 elif self.b8 == 6:
-                    send_img_url(reply_token,"https://imgur.com/NhqNPbo.jpg")                                            
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 161")                                       
                 elif self.b8 == 0:
-                    send_img_url(reply_token,"https://imgur.com/GsKP5om.jpg")
-                
+                    cursor.execute("SELECT username FROM users WHERE role_id = 9 and id = 162")   
+                Tables=cursor.fetchall()
+                send_img_url(reply_token,random.choice(Tables)[0])                      
         self.a=0
         self.go_back()
         

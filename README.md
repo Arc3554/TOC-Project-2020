@@ -1,15 +1,12 @@
 # TOC Project 2020
 
-名稱 : 補番機器人
+Code for TOC Project 2020
 
 A Line bot based on a finite state machine
 
 
 ## Finite State Machine
 ![fsm](./fsm.png)
-
-## QR code
-![QRcode](./QRcode.png)
 
 ## Usage
 The initial state is set to `user`.
